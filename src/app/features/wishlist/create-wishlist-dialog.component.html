@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Nova lista de desejos</h2>
+<mat-dialog-content>
+  <p>Dê um nome para guardar seus próximos favoritos.</p>
+  <mat-form-field appearance="outline">
+    <mat-label>Nome da lista</mat-label>
+    <input
+      id="wishlist-name"
+      aria-label="Nome da lista"
+      matInput
+      [formControl]="name"
+      maxlength="40"
+      (keyup.enter)="submit()"
+    />
+    @if (name.hasError('required') && name.touched) {
+      <mat-error>Informe um nome para a lista.</mat-error>
+    } @else if (name.hasError('minlength') && name.touched) {
+      <mat-error>Use pelo menos 2 caracteres.</mat-error>
+    }
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-flat-button class="primary" (click)="submit()">Criar lista</button>
+</mat-dialog-actions>

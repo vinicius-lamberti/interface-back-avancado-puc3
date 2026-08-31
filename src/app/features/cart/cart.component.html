@@ -1,0 +1,54 @@
+<main class="container page">
+  <span class="eyebrow">SUA SACOLA</span>
+  <h1>Quase seu.</h1>
+  @if (cart.items().length) {
+    <div class="row g-5 mt-3">
+      <div class="col-lg-8">
+        @for (item of cart.lines(); track item.productId) {
+          <div class="line-item">
+            <img [ngSrc]="item.product.image" width="180" height="140" [alt]="item.product.title" />
+            <div class="line-copy">
+              <span class="category">{{ item.product.category }}</span>
+              <h3>{{ item.product.title }}</h3>
+              <strong>{{ item.product.price | currency: 'BRL' }}</strong>
+            </div>
+            <mat-form-field appearance="outline"
+              ><mat-label>Qtd.</mat-label
+              ><input
+                id="cart-quantity-{{ item.productId }}"
+                matInput
+                type="number"
+                min="1"
+                [value]="item.quantity"
+                (change)="update(item.productId, $event)" /></mat-form-field
+            ><button
+              mat-icon-button
+              aria-label="Remover item"
+              (click)="cart.remove(item.productId)"
+            >
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+          </div>
+        }
+      </div>
+      <div class="col-lg-4">
+        <mat-card class="summary"
+          ><span>RESUMO DO PEDIDO</span>
+          <div>
+            <span>Subtotal</span><strong>{{ cart.subtotal() | currency: 'BRL' }}</strong>
+          </div>
+          <small>Frete calculado no checkout</small
+          ><button mat-flat-button class="primary" routerLink="/checkout/success">
+            Prosseguir para checkout
+          </button></mat-card
+        >
+      </div>
+    </div>
+  } @else {
+    <div class="empty-state">
+      <mat-icon>shopping_bag</mat-icon>
+      <h2>Sua sacola está vazia</h2>
+      <a mat-flat-button class="primary" routerLink="/">Explorar produtos</a>
+    </div>
+  }
+</main>

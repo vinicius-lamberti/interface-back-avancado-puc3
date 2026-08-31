@@ -1,0 +1,58 @@
+.page {
+  padding: 4rem 0 7rem;
+}
+.profile-head {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dfe5df;
+  padding-bottom: 2.5rem;
+}
+.profile-head h1 {
+  font-size: 4rem;
+  letter-spacing: -0.08em;
+  margin: 0;
+}
+.profile-icon {
+  font-size: 80px;
+  width: 80px;
+  height: 80px;
+  color: #d95d39;
+}
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: #d95d39;
+}
+.form-card {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+.primary {
+  background: #14372b !important;
+  color: #fff !important;
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.wishlist-card {
+  padding: 1.3rem;
+  position: relative;
+}
+.wishlist-card > mat-icon {
+  color: #d95d39;
+}
+.wishlist-card button:last-child {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}

@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Salvar em uma lista</h2>
+<mat-dialog-content>
+  @for (list of data; track list.id) {
+    <button mat-button class="list-choice" (click)="dialogRef.close(list.id)">
+      <mat-icon>bookmark_border</mat-icon>
+      {{ list.name }}
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  }
+</mat-dialog-content>

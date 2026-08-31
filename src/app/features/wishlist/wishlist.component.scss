@@ -1,0 +1,44 @@
+.page {
+  padding: 4rem 0 7rem;
+}
+.back {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: #14372b;
+  text-decoration: none;
+  margin-bottom: 3rem;
+}
+.page h1 {
+  font-size: 4rem;
+  letter-spacing: -0.08em;
+}
+.product-card {
+  height: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.product-card img {
+  aspect-ratio: 1.25;
+  object-fit: cover;
+}
+.product-card mat-card-content {
+  padding: 1rem;
+}
+.product-card h3 {
+  margin: 0.4rem 0 0.8rem;
+}
+.product-card mat-card-actions {
+  justify-content: space-between;
+}
+.empty-state {
+  text-align: center;
+  padding: 5rem;
+}
+.eyebrow,
+.category {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: #d95d39;
+}

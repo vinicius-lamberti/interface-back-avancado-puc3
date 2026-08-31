@@ -1,0 +1,39 @@
+@if (product | async; as item) {
+  <main class="container product-detail">
+    <a class="back" routerLink="/"><mat-icon>arrow_back</mat-icon>Voltar à coleção</a>
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-7">
+        <img
+          class="detail-image"
+          [ngSrc]="item.image"
+          width="900"
+          height="700"
+          [alt]="item.title"
+        />
+      </div>
+      <div class="col-lg-5">
+        <span class="eyebrow">{{ item.category }}</span>
+        <h1>{{ item.title }}</h1>
+        <p class="description">{{ item.description }}</p>
+        <strong class="detail-price">{{ item.price | currency: 'BRL' }}</strong>
+        <div class="buy-row">
+          <mat-form-field appearance="outline"
+            ><mat-label>Quantidade</mat-label
+            ><input
+              id="product-quantity"
+              aria-label="Quantidade do produto"
+              matInput
+              type="number"
+              min="1"
+              [formControl]="quantity" /></mat-form-field
+          ><button mat-flat-button class="primary" (click)="add(item)">
+            Adicionar ao carrinho
+          </button>
+        </div>
+        <button mat-stroked-button class="favorite" (click)="favorite(item)">
+          <mat-icon>favorite_border</mat-icon>Favoritar
+        </button>
+      </div>
+    </div>
+  </main>
+}

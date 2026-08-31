@@ -1,1 +1,101 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+:root {
+  --ink: #14372b;
+  --muted: #68766e;
+  --accent: #d95d39;
+  --paper: #f8faf6;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+}
+body {
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+button,
+input,
+select {
+  font-family: inherit;
+}
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 76px;
+  padding: 0 max(1.5rem, calc((100vw - 1200px) / 2));
+  background: rgba(248, 250, 246, 0.94) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #dfe5df;
+  color: var(--ink);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ink);
+  font-family: Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 50%;
+  font-style: italic;
+  letter-spacing: 0;
+}
+.brand-dot {
+  color: var(--accent);
+}
+.toolbar-spacer {
+  flex: 1;
+}
+.desktop-nav {
+  display: flex;
+  gap: 2rem;
+  margin-right: 1rem;
+}
+.desktop-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+.desktop-nav a.active {
+  color: var(--accent);
+}
+footer {
+  padding: 2rem 0;
+  border-top: 1px solid #dfe5df;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .desktop-nav {
+    display: none;
+  }
+  .topbar {
+    padding: 0 1rem;
+  }
+  footer .container {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
