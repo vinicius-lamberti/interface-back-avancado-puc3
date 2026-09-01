@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Cart, CartItem, Product } from '../models/api.models';
 
-const API = '/api';
+const API = 'http://localhost:8000/api';
 
 export interface CartLine extends CartItem {
   product: Product;
@@ -49,9 +48,7 @@ export class CartService {
       products: [...this.items(), item],
     };
 
-    return this.http.put<Cart>(`${API}/carts/${cartId}`, payload).pipe(
-      catchError(() => of(payload)),
-    );
+    return this.http.put<Cart>(`${API}/carts/${cartId}`, payload);
   }
 
   add(product: Product, quantity = 1): CartItem {

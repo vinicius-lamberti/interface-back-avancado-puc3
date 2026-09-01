@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { catchError, map, Observable, of } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Order } from '../models/api.models';
 
-const API = '/api';
+const API = 'http://localhost:8000/api';
 
 @Injectable({ providedIn: 'root' })
 export class OrderService {
@@ -21,7 +21,6 @@ export class OrderService {
 
   getByUserId(userId: number): Observable<Order[]> {
     return this.http.get<Order[]>(`${API}/orders/user/${userId}`).pipe(
-      catchError(() => of([])),
       map((orders) => {
         const normalized = [...orders].sort(
           (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),

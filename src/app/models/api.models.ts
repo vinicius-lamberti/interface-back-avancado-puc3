@@ -1,4 +1,9 @@
-// FakeStoreAPI schemas
+// FakeStoreAPI schemas (documented contract + compatibility with the real backend payloads)
+export interface ProductRating {
+  rate: number;
+  count: number;
+}
+
 export interface Product {
   id: number;
   title: string;
@@ -6,9 +11,12 @@ export interface Product {
   description: string;
   category: string;
   image: string;
+  rating?: ProductRating;
+  __v?: number;
 }
 
 export interface CartItem {
+  id?: number;
   productId: number;
   quantity: number;
 }
@@ -18,6 +26,25 @@ export interface Cart {
   userId: number;
   date?: string;
   products: CartItem[];
+  __v?: number;
+}
+
+export interface UserName {
+  firstname: string;
+  lastname: string;
+}
+
+export interface UserGeoLocation {
+  lat: string;
+  long: string;
+}
+
+export interface UserAddress {
+  city: string;
+  street: string;
+  number: number;
+  zipcode: string;
+  geolocation?: UserGeoLocation;
 }
 
 export interface User {
@@ -25,21 +52,15 @@ export interface User {
   username: string;
   email: string;
   password?: string;
-  name?: {
-    firstname: string;
-    lastname: string;
-  };
-  address?: {
-    city: string;
-    street: string;
-    number: number;
-    zipcode: string;
-    geolocation?: {
-      lat: string;
-      long: string;
-    };
-  };
+  name?: UserName;
+  address?: UserAddress;
   phone?: string;
+  __v?: number;
+}
+
+export interface LoginRequest {
+  username: string;
+  password: string;
 }
 
 export interface AuthLoginResponse {
@@ -62,6 +83,7 @@ export interface Wishlist {
   items?: WishlistItem[];
 }
 
+// SQLite order schemas
 export interface OrderItem {
   id?: number;
   order_id?: number;

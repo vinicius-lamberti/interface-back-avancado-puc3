@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Product, Wishlist, WishlistItem } from '../models/api.models';
 
-const API = '/api';
+const API = 'http://localhost:8000/api';
 
 export interface WishlistEntry extends WishlistItem {
   product?: Product;
@@ -29,15 +29,7 @@ export class WishlistService {
   }
 
   getById(id: number): Observable<Wishlist> {
-    const fallback = this.wishlists().find((list) => list.id === id);
-    if (fallback) {
-      return new Observable<Wishlist>((subscriber) => {
-        subscriber.next(fallback);
-        subscriber.complete();
-      });
-    }
-
-    return this.http.get<Wishlist>(`${API}/wishlists/user/${1}`).pipe(
+    return this.http.get<Wishlist>(`${API}/wishlists/${id}`).pipe(
       tap((wishlist) => {
         if (wishlist && typeof wishlist === 'object') {
           this.wishlists.update((lists) =>

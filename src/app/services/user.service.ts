@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { AuthLoginResponse, User } from '../models/api.models';
 
-const API = '/api';
+const API = 'http://localhost:8000/api';
 
 export type UserUpdate = Pick<User, 'username' | 'email'> & Partial<Pick<User, 'password'>>;
 
@@ -12,8 +13,24 @@ export class UserService {
   private readonly http = inject(HttpClient);
   readonly currentUser = signal<User>({
     id: 1,
-    username: 'Marina Costa',
-    email: 'marina@aurora.store',
+    username: 'johnd',
+    email: 'john@gmail.com',
+    password: 'm38rmF$',
+    name: {
+      firstname: 'john',
+      lastname: 'doe',
+    },
+    address: {
+      city: 'kilcoole',
+      street: 'new road',
+      number: 7682,
+      zipcode: '12926-3874',
+      geolocation: {
+        lat: '-37.3159',
+        long: '81.1496',
+      },
+    },
+    phone: '1-570-236-7033',
   });
 
   login(username: string, password: string): Observable<AuthLoginResponse> {
@@ -32,7 +49,9 @@ export class UserService {
       email: update.email,
       ...(update.password ? { password: update.password } : {}),
     };
-    this.currentUser.set(payload);
-    return this.http.put<User>(`${API}/users/${id}`, payload).pipe(catchError(() => of(payload)));
+
+    return this.http.put<User>(`${API}/users/${id}`, payload).pipe(
+      tap((user) => this.currentUser.set(user)),
+    );
   }
 }
