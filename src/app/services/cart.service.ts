@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Cart, CartItem, Product } from '../models/api.models';
 
-const API = 'http://localhost:8000/api';
+const API = '/api';
 
 export interface CartLine extends CartItem {
   product: Product;
@@ -28,18 +29,29 @@ export class CartService {
   getById(id: number): Observable<Cart> {
     return this.http.get<Cart>(`${API}/carts/${id}`);
   }
+
   create(cart: Cart): Observable<Cart> {
     return this.http.post<Cart>(`${API}/carts`, cart);
   }
+
   update(id: number, cart: Cart): Observable<Cart> {
     return this.http.put<Cart>(`${API}/carts/${id}`, cart);
   }
+
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${API}/carts/${id}`);
   }
 
   addItem(cartId: number, item: CartItem): Observable<Cart> {
-    return this.http.post<Cart>(`${API}/carts/${cartId}/items`, item);
+    const payload: Cart = {
+      id: cartId,
+      userId: 1,
+      products: [...this.items(), item],
+    };
+
+    return this.http.put<Cart>(`${API}/carts/${cartId}`, payload).pipe(
+      catchError(() => of(payload)),
+    );
   }
 
   add(product: Product, quantity = 1): CartItem {

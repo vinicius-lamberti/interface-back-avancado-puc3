@@ -26,8 +26,7 @@ export class ProductComponent {
   readonly quantity = new FormControl(1, { nonNullable: true, validators: [Validators.min(1)] });
   readonly product = inject(ProductService).getById(Number(this.route.snapshot.paramMap.get('id')));
   add(product: Product) {
-    const item = this.cart.add(product, this.quantity.value);
-    this.cart.addItem(1, item).subscribe();
+    this.cart.add(product, this.quantity.value);
     this.snack.open('Produto adicionado ao carrinho', 'OK', { duration: 2500 });
   }
   favorite(product: Product) {

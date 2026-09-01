@@ -38,7 +38,7 @@
             <span>Subtotal</span><strong>{{ cart.subtotal() | currency: 'BRL' }}</strong>
           </div>
           <small>Frete calculado no checkout</small
-          ><button mat-flat-button class="primary" routerLink="/checkout/success">
+          ><button mat-flat-button class="primary" (click)="checkout()">
             Prosseguir para checkout
           </button></mat-card
         >

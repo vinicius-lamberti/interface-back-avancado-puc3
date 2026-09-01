@@ -3,7 +3,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
 import { AuthLoginResponse, User } from '../models/api.models';
 
-const API = 'http://localhost:8000/api';
+const API = '/api';
 
 export type UserUpdate = Pick<User, 'username' | 'email'> & Partial<Pick<User, 'password'>>;
 

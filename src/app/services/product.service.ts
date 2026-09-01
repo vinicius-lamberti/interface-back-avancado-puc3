@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
 import { Product } from '../models/api.models';
 
-const API = 'http://localhost:8000/api';
+const API = '/api';
 
 const catalog: Product[] = [
   {
