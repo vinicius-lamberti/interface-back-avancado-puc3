@@ -1,0 +1,42 @@
+<main class="container page">
+  @if (list(); as wishlist) {
+    <a class="back" routerLink="/profile"><mat-icon>arrow_back</mat-icon>Minhas listas</a
+    ><span class="eyebrow">LISTA DE DESEJOS</span>
+    <h1>{{ wishlist.name }}</h1>
+    <p>{{ wishlist.items?.length ?? 0 }} itens escolhidos para você.</p>
+    <div class="row g-4 mt-3">
+      @for (item of wishlist.items ?? []; track item.id) {
+        @if (productFor(item.product_id) | async; as product) {
+          <div class="col-12 col-sm-6 col-lg-4">
+            <mat-card class="product-card"
+              ><img
+                mat-card-image
+                [ngSrc]="product.image"
+                width="900"
+                height="700"
+                [alt]="product.title"
+              /><mat-card-content
+                ><span class="category">{{ product.category }}</span>
+                <h3>{{ product.title }}</h3>
+                <strong>{{ product.price | currency: 'BRL' }}</strong></mat-card-content
+              ><mat-card-actions
+                ><button mat-button (click)="move(item)">Adicionar ao carrinho</button
+                ><button
+                  mat-icon-button
+                  aria-label="Remover favorito"
+                  (click)="wishlistService.removeItem(wishlist.id, item.product_id).subscribe()"
+                >
+                  <mat-icon>delete_outline</mat-icon>
+                </button></mat-card-actions
+              ></mat-card
+            >
+          </div>
+        }
+      } @empty {
+        <p class="empty-state">Ainda não há itens nesta lista.</p>
+      }
+    </div>
+  } @else {
+    <p class="empty-state">Lista não encontrada.</p>
+  }
+</main>

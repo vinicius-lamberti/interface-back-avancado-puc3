@@ -1,0 +1,38 @@
+.success {
+  text-align: center;
+  padding: 7rem 1rem;
+}
+.success-mark {
+  margin: 0 auto 2rem;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #dce8e0;
+  display: grid;
+  place-items: center;
+}
+.success h1 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.08em;
+}
+.success em {
+  color: #d95d39;
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+.success p {
+  font-size: 1.1rem;
+  margin: 2rem 0;
+}
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: #d95d39;
+}
+.primary {
+  background: #14372b !important;
+  color: #fff !important;
+  height: 52px;
+}

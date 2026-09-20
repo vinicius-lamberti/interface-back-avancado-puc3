@@ -1,0 +1,62 @@
+<main class="container page">
+  <div class="profile-head">
+    <div>
+      <span class="eyebrow">CONTA</span>
+      <h1>Olá, {{ userService.currentUser().username.split(' ')[0] }}.</h1>
+      <p>{{ userService.currentUser().email }}</p>
+    </div>
+    <mat-icon class="profile-icon">person_outline</mat-icon>
+  </div>
+  <div class="row g-5 mt-3">
+    <div class="col-lg-5">
+      <mat-card class="form-card"
+        ><h2>Dados pessoais</h2>
+        <mat-form-field appearance="outline"
+          ><mat-label>E-mail</mat-label
+          ><input
+            id="profile-email"
+            aria-label="E-mail"
+            matInput
+            [formControl]="email"
+            type="email" /></mat-form-field
+        ><mat-form-field appearance="outline"
+          ><mat-label>Nova senha</mat-label
+          ><input
+            id="profile-password"
+            aria-label="Nova senha"
+            matInput
+            [formControl]="password"
+            type="password" /></mat-form-field
+        ><button mat-flat-button class="primary" (click)="save()">
+          Salvar alterações
+        </button></mat-card
+      >
+    </div>
+    <div class="col-lg-7">
+      <div class="section-head">
+        <h2>Listas de desejos</h2>
+        <button mat-stroked-button (click)="create()">
+            <mat-icon>add</mat-icon>
+            Nova lista
+        </button>
+      </div>
+      <div class="wishlist-grid">
+        @for (list of wishlistService.wishlists(); track list.id) {
+          <mat-card class="wishlist-card"
+            ><mat-icon>bookmark</mat-icon>
+            <h3>{{ list.name }}</h3>
+            <p>{{ list.items?.length ?? 0 }} itens salvos</p>
+            <a mat-button [routerLink]="['/wishlist', list.id]">Abrir lista</a
+            ><button
+              mat-icon-button
+              aria-label="Excluir lista"
+              (click)="wishlistService.delete(list.id).subscribe()"
+            >
+              <mat-icon>delete_outline</mat-icon>
+            </button></mat-card
+          >
+        }
+      </div>
+    </div>
+  </div>
+</main>

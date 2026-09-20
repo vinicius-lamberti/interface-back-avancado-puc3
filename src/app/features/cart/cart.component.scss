@@ -1,0 +1,59 @@
+.page {
+  padding: 4rem 0 7rem;
+}
+.page h1 {
+  font-size: 4rem;
+  letter-spacing: -0.08em;
+}
+.eyebrow,
+.category {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: #d95d39;
+}
+.line-item {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #dfe5df;
+}
+.line-item img {
+  width: 150px;
+  height: 110px;
+  object-fit: cover;
+}
+.line-copy {
+  flex: 1;
+}
+.line-copy h3 {
+  margin: 0.3rem 0 0.7rem;
+}
+.line-item mat-form-field {
+  width: 100px;
+}
+.summary {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+  border-radius: 3px;
+}
+.summary div {
+  display: flex;
+  justify-content: space-between;
+}
+.primary {
+  background: #14372b !important;
+  color: #fff !important;
+}
+.empty-state {
+  text-align: center;
+  padding: 6rem 0;
+}
+.empty-state mat-icon {
+  font-size: 54px;
+  width: 54px;
+  height: 54px;
+  color: #d95d39;
+}

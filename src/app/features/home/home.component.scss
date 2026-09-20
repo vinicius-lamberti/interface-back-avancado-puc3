@@ -1,0 +1,89 @@
+:host {
+  display: block;
+}
+.hero {
+  background: linear-gradient(105deg, #dce8e0, #edf2e8 58%, #f4c9a9);
+  padding: 7rem 0 6rem;
+  margin-bottom: 4rem;
+}
+.hero h1 {
+  font-size: clamp(3.4rem, 7vw, 6.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.08em;
+}
+.hero em {
+  color: #d95d39;
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+.hero p {
+  font-size: 1.15rem;
+  margin-top: 2rem;
+  max-width: 360px;
+}
+.eyebrow,
+.category {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: #d95d39;
+}
+.eyebrow {
+  display: block;
+  margin-bottom: 1.2rem;
+}
+.catalog {
+  padding-bottom: 6rem;
+}
+.catalog-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 2rem;
+}
+.catalog h2 {
+  font-size: 2.1rem;
+  letter-spacing: -0.05em;
+}
+.filters {
+  display: flex;
+  gap: 1rem;
+}
+.filters mat-form-field {
+  width: 220px;
+}
+.product-card {
+  height: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.product-card img {
+  aspect-ratio: 1.25;
+  object-fit: cover;
+}
+.product-card mat-card-content {
+  padding: 1.2rem;
+}
+.product-card h3 {
+  font-size: 1.15rem;
+  margin: 0.45rem 0 1rem;
+}
+.product-card a {
+  color: #14372b;
+}
+.empty {
+  text-align: center;
+  padding: 3rem;
+}
+@media (max-width: 700px) {
+  .catalog-head {
+    display: block;
+  }
+  .filters {
+    display: block;
+    margin-top: 1.5rem;
+  }
+  .filters mat-form-field {
+    width: 100%;
+  }
+}

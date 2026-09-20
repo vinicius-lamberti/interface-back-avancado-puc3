@@ -1,0 +1,94 @@
+.page {
+  padding: 4rem 0 7rem;
+}
+
+.page h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -0.08em;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: #d95d39;
+}
+
+.orders-accordion {
+  display: block;
+}
+
+.order-id {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #14372b;
+}
+
+.mat-expansion-panel-header {
+  min-height: 72px;
+}
+
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  align-items: center;
+  gap: 1rem;
+}
+
+.mat-expansion-panel-header-description {
+  justify-content: space-between;
+}
+
+.order-detail {
+  display: grid;
+  gap: 1.2rem;
+  padding: 0.5rem 0 0.25rem;
+}
+
+.order-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: #68766e;
+}
+
+.order-items-table {
+  width: 100%;
+  background: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 6rem 0;
+}
+
+.empty-state mat-icon {
+  font-size: 54px;
+  width: 54px;
+  height: 54px;
+  color: #d95d39;
+}
+
+.empty-state h2 {
+  margin: 1rem 0 0.5rem;
+}
+
+.empty-state p {
+  color: #68766e;
+  margin-bottom: 1.5rem;
+}
+
+.primary {
+  background: #14372b !important;
+  color: #fff !important;
+}
+
+@media (max-width: 640px) {
+  .order-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

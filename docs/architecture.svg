@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520" role="img" aria-labelledby="title desc">
+  <title id="title">Arquitetura da aplicação Interface Back Avançado PUC3</title>
+  <desc id="desc">O frontend Angular chama a API FastAPI, que integra a FakeStoreAPI e persiste pedidos e wishlists em SQLite.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+    </marker>
+    <style>
+      .box { stroke: #334155; stroke-width: 2; rx: 12; }
+      .title { font: 700 22px sans-serif; fill: #0f172a; }
+      .label { font: 600 17px sans-serif; fill: #0f172a; }
+      .detail { font: 14px sans-serif; fill: #334155; }
+      .arrow { stroke: #334155; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1100" height="520" fill="#f8fafc" />
+  <text x="550" y="42" text-anchor="middle" class="title">Cenário 1.1 - Interface + API principal + API externa</text>
+
+  <rect x="55" y="160" width="270" height="150" fill="#dbeafe" class="box" />
+  <text x="190" y="205" text-anchor="middle" class="label">Interface Angular</text>
+  <text x="190" y="235" text-anchor="middle" class="detail">Catálogo, carrinho, checkout</text>
+  <text x="190" y="258" text-anchor="middle" class="detail">perfil, wishlists e pedidos</text>
+  <text x="190" y="286" text-anchor="middle" class="detail">http://localhost/</text>
+
+  <rect x="415" y="130" width="290" height="210" fill="#ffedd5" class="box" />
+  <text x="560" y="180" text-anchor="middle" class="label">API principal FastAPI</text>
+  <text x="560" y="215" text-anchor="middle" class="detail">REST: /api/products, /users</text>
+  <text x="560" y="238" text-anchor="middle" class="detail">/carts, /auth, /orders</text>
+  <text x="560" y="261" text-anchor="middle" class="detail">e /wishlists</text>
+  <text x="560" y="306" text-anchor="middle" class="detail">http://localhost:8000/docs</text>
+
+  <rect x="795" y="80" width="250" height="125" fill="#dcfce7" class="box" />
+  <text x="920" y="125" text-anchor="middle" class="label">FakeStoreAPI</text>
+  <text x="920" y="153" text-anchor="middle" class="detail">Produtos, usuários</text>
+  <text x="920" y="176" text-anchor="middle" class="detail">carrinhos e autenticação</text>
+
+  <rect x="795" y="285" width="250" height="125" fill="#fef3c7" class="box" />
+  <text x="920" y="330" text-anchor="middle" class="label">SQLite</text>
+  <text x="920" y="358" text-anchor="middle" class="detail">Volume Docker</text>
+  <text x="920" y="381" text-anchor="middle" class="detail">wishlists e orders</text>
+
+  <path d="M325 235 H405" class="arrow" />
+  <text x="365" y="220" text-anchor="middle" class="detail">REST/HTTP</text>
+  <path d="M715 185 H785" class="arrow" />
+  <text x="750" y="170" text-anchor="middle" class="detail">integra</text>
+  <path d="M715 285 H785" class="arrow" />
+  <text x="750" y="270" text-anchor="middle" class="detail">persiste</text>
+</svg>
